@@ -93,7 +93,12 @@
 
     ```rust title="array.rs"
     /* 初始化陣列 */
-    let arr: Vec<i32> = vec![0; 5]; // [0, 0, 0, 0, 0]
+    let arr: [i32; 5] = [0; 5]; // [0, 0, 0, 0, 0]
+    let slice: &[i32] = &[0; 5];
+    // 在 Rust 中，指定長度時（[i32; 5]）為陣列，不指定長度時（&[i32]）為切片
+    // 由於 Rust 的陣列被設計為在編譯期確定長度，因此只能使用常數來指定長度
+    // Vector 是 Rust 一般情況下用作動態陣列的型別
+    // 為了方便實現擴容 extend() 方法，以下將 vector 看作陣列（array）
     let nums: Vec<i32> = vec![1, 3, 2, 5, 4];
     ```
 
@@ -131,7 +136,7 @@
 
 ??? pythontutor "視覺化執行"
 
-    https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E6%95%B0%E7%BB%84%0Aarr%20%3D%20%5B0%5D%20*%205%20%20%23%20%5B%200,%200,%200,%200,%200%20%5D%0Anums%20%3D%20%5B1,%203,%202,%205,%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
+    https://pythontutor.com/render.html#code=%23%20%E5%88%9D%E5%A7%8B%E5%8C%96%E9%99%A3%E5%88%97%0Aarr%20%3D%20%5B0%5D%20%2A%205%20%20%23%20%5B%200%2C%200%2C%200%2C%200%2C%200%20%5D%0Anums%20%3D%20%5B1%2C%203%2C%202%2C%205%2C%204%5D&cumulative=false&curInstr=0&heapPrimitives=nevernest&mode=display&origin=opt-frontend.js&py=311&rawInputLstJSON=%5B%5D&textReferences=false
 
 ### 訪問元素
 

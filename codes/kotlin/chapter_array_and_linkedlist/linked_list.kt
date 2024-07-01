@@ -20,6 +20,7 @@ fun insert(n0: ListNode?, p: ListNode?) {
 fun remove(n0: ListNode?) {
     if (n0?.next == null)
         return
+    // n0 -> P -> n1
     val p = n0.next
     val n1 = p?.next
     n0.next = n1
@@ -41,7 +42,7 @@ fun find(head: ListNode?, target: Int): Int {
     var index = 0
     var h = head
     while (h != null) {
-        if (h.value == target)
+        if (h._val == target)
             return index
         h = h.next
         index++
@@ -78,10 +79,10 @@ fun main() {
     printLinkedList(n0)
 
     /* 访问节点 */
-    val node: ListNode = access(n0, 3)!!
-    println("链表中索引 3 处的节点的值 = ${node.value}")
+    val node = access(n0, 3)!!
+    println("链表中索引 3 处的节点的值 = ${node._val}")
 
     /* 查找节点 */
-    val index: Int = find(n0, 2)
+    val index = find(n0, 2)
     println("链表中值为 2 的节点的索引 = $index")
 }

@@ -16,7 +16,7 @@ var list = mutableListOf<Int>()
 fun preOrder(root: TreeNode?) {
     if (root == null) return
     // 访问优先级：根节点 -> 左子树 -> 右子树
-    list.add(root.value)
+    list.add(root._val)
     preOrder(root.left)
     preOrder(root.right)
 }
@@ -26,7 +26,7 @@ fun inOrder(root: TreeNode?) {
     if (root == null) return
     // 访问优先级：左子树 -> 根节点 -> 右子树
     inOrder(root.left)
-    list.add(root.value)
+    list.add(root._val)
     inOrder(root.right)
 }
 
@@ -36,13 +36,13 @@ fun postOrder(root: TreeNode?) {
     // 访问优先级：左子树 -> 右子树 -> 根节点
     postOrder(root.left)
     postOrder(root.right)
-    list.add(root.value)
+    list.add(root._val)
 }
 
 /* Driver Code */
 fun main() {
     /* 初始化二叉树 */
-    // 这里借助了一个从数组直接生成二叉树的函数
+    // 这里借助了一个从列表直接生成二叉树的函数
     val root = TreeNode.listToTree(mutableListOf(1, 2, 3, 4, 5, 6, 7))
     println("\n初始化二叉树\n")
     printTree(root)
